@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    // Poll SCM every 5 minutes
+    triggers {
+        pollSCM('H/5 * * * *')
+    }
+
     environment {
         DOTNET_VERSION = '8.0.x' // Define .NET version for consistency
     }
